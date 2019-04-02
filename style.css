@@ -1,0 +1,41 @@
+body {
+    background-image: url(img/suga.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    font-family: a-otf-ud-shin-go-pr6n, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.plate {
+    position: fixed;
+    top: 0vh;
+    left: 0vw;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+}
+
+#particles {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    position: fixed;
+    top: 20%;
+    height: 60%;
+    left: 0%;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.countdown {
+    font-size: xx-large;
+}

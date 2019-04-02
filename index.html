@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@shuhannn" />
+        <meta name="description" content="改元までカウントダウンします。" />
+        <meta property="og:site_name" content="令和カウントダウン" />
+        <meta property="og:title" content="Countdown" />
+        <meta property="og:description" content="改元までカウントダウンします。" />
+        <title>令和カウントダウン</title>
+
+        <link rel="stylesheet" href="style.css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="jquery.particleground.min.js"></script>
+
+        <script>
+            (function(d) {
+                var config = {
+                    kitId: 'cdz1bxu',
+                    scriptTimeout: 3000,
+                    async: true
+                },
+                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+            })(document);
+        </script>
+
+    </head>
+    <body>
+        <div id="particles"></div>
+        <div class="plate"></div>
+        <div class="main">
+            <h1>令和カウントダウン</h1>
+            <h4 class="countdown"></p>
+        </div>
+        <script>
+            $('#particles').particleground({
+	            dotColor: '#dcdcdc',
+	            lineColor: '#c0c0c0',
+	            particleRadius: 4
+            });
+            function countdowntimer(){
+                var countdown = setInterval(function(){
+                    var today = new Date();
+                    var targetDay = new Date('2019/05/01 00:00:00');
+                    var daysBetween = Math.ceil((targetDay - today) / (24*60*60*1000));
+                    var remainDay = (targetDay - today);
+                    if (remainDay >= 0){
+                        var h = Math.floor(remainDay / 3600000);
+                        var h1 = h % 24;
+                        var m = Math.floor((remainDay - h * 3600000) / 60000);
+                        var s = Math.round((remainDay - h * 3600000 - m * 60000) / 1000);
+                        $(".countdown").text("改元まで"+ daysBetween + "日" + h1 + "時間" + m + "分" +s + "秒");
+                        if ((h == 0) && (m == 0) && (s == 0)) {
+                            clearTimeout(countdown);
+                            $(".countdown").text("祝・改元");
+                        }
+                    }else{
+                        $(".countdown").text("新たな時代「令和」が始まりました！");
+                    }
+                }, 1000);
+            }
+            countdowntimer();
+        </script>
+    </body>
+</html>
